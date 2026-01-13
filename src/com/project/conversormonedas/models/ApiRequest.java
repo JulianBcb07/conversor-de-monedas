@@ -2,7 +2,6 @@ package com.project.conversormonedas.models;
 
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -10,13 +9,13 @@ import java.net.http.HttpResponse;
 
 public class ApiRequest {
 
+    public Moneda consultaCambio(String base_code, String target_code) {
+
+    String API_KEY = System.getenv("API_KEY");
+
     double mount = 10.99; // example
 
-// https://v6.exchangerate-api.com/v6/d333520843fc59e3d82fe792/pair/USD/MXN/23 - URL con mi ApiKey para realizar el proyecto
-
-    public Moneda consultarCambio(String base_code, String target_code) {
-
-    URI API_URL = URI.create("https://v6.exchangerate-api.com/v6/d333520843fc59e3d82fe792/pair/"+base_code+"/"+target_code+"/"+mount);
+    URI API_URL = URI.create(API_KEY+base_code+"/"+target_code+"/"+mount);
 
     // API Request
     HttpClient client = HttpClient.newHttpClient();
