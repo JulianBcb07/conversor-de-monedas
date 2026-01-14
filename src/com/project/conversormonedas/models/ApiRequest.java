@@ -9,11 +9,9 @@ import java.net.http.HttpResponse;
 
 public class ApiRequest {
 
-    public Moneda consultaCambio(String base_code, String target_code) {
+    public Moneda consultaCambio(String base_code, String target_code, double mount) {
 
     String API_KEY = System.getenv("API_KEY");
-
-    double mount = 10.99; // example
 
     URI API_URL = URI.create(API_KEY+base_code+"/"+target_code+"/"+mount);
 
