@@ -8,6 +8,7 @@ public class ConversionModel {
     private double resultadoConversion;
 
 
+
     public ConversionModel(Moneda miMoneda, double montoUsuario) {
         this.moneda1 = miMoneda.base_code();
         this.moneda2 = miMoneda.target_code();
