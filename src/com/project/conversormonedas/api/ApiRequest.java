@@ -1,6 +1,7 @@
-package com.project.conversormonedas.models;
+package com.project.conversormonedas.api;
 
 import com.google.gson.Gson;
+import com.project.conversormonedas.models.Moneda;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,11 +10,9 @@ import java.net.http.HttpResponse;
 
 public class ApiRequest {
 
-    public Moneda consultaCambio(String base_code, String target_code) {
+    public Moneda consultaCambio(String base_code, String target_code, double mount) {
 
     String API_KEY = System.getenv("API_KEY");
-
-    double mount = 10.99; // example
 
     URI API_URL = URI.create(API_KEY+base_code+"/"+target_code+"/"+mount);
 
@@ -27,8 +26,6 @@ public class ApiRequest {
             return new Gson().fromJson(response.body(), Moneda.class);
         } catch (Exception e) {
             throw new RuntimeException("No se pudo realizar la consulta correctamente");
-        } finally {
-            System.out.println("Fin de la consulta");
         }
     }
 }
