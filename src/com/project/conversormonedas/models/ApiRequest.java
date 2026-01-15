@@ -25,8 +25,6 @@ public class ApiRequest {
             return new Gson().fromJson(response.body(), Moneda.class);
         } catch (Exception e) {
             throw new RuntimeException("No se pudo realizar la consulta correctamente");
-        } finally {
-            System.out.println("Fin de la consulta");
         }
     }
 }

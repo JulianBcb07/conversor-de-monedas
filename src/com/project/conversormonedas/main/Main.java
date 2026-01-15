@@ -1,14 +1,17 @@
 package com.project.conversormonedas.main;
 
 import com.project.conversormonedas.models.ApiRequest;
+import com.project.conversormonedas.models.ConversionModel;
 import com.project.conversormonedas.models.Moneda;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main  {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        ArrayList<ConversionModel>  listaDeConsultas = new ArrayList<>();
 
 
         // realizar el menu del programa
@@ -46,7 +49,10 @@ public class Main  {
 
                 try {
                     Moneda moneda = consultar.consultaCambio(moneda1, moneda2, monto);
-                    System.out.println(moneda);
+//                    System.out.println(moneda);
+                    ConversionModel monedaConvertida = new ConversionModel(moneda, monto);
+                    System.out.println(monedaConvertida);
+
                 } catch (Exception e) {
                     System.out.println("Ocurrio un error en la consulta");
                 }
