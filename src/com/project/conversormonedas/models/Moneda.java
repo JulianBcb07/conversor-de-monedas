@@ -6,7 +6,7 @@ public record Moneda(
         String base_code,
         String target_code,
         String result,
-        @SerializedName("error-Type")
+        @SerializedName("error-type")
         String errorType,
         double conversion_rate,
         double conversion_result) {

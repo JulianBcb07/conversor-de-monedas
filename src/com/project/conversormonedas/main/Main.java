@@ -14,7 +14,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ArrayList<ConversionModel> listaDeConsultas = new ArrayList<>();
 
-
         // realizar el menu del programa
 
         int value_menu = 0;
@@ -43,10 +42,11 @@ public class Main {
                     mostrarConversiones();
                 } else if (value_menu == 2) {
                     System.out.println("\nEligió hacer una conversión:\n ");
-                    System.out.println("Ingrese la primera moneda:");
+
+                    System.out.println("Ingrese la primera moneda (codigo de moneda ISO):");
                     String moneda1 = sc.nextLine().toUpperCase();
 
-                    System.out.println("Ingrese la segunda moneda:");
+                    System.out.println("Ingrese la segunda moneda (codigo de moneda ISO):");
                     String moneda2 = sc.nextLine().toUpperCase();
 
                     System.out.println("Ingrese el monto a convertir:");
@@ -54,7 +54,6 @@ public class Main {
 
                     try {
                         Moneda moneda = consultar.consultaCambio(moneda1, moneda2, monto);
-//                    System.out.println(moneda)
                         if (moneda.result().equals("success")) {
                             ConversionModel monedaConvertida = new ConversionModel(moneda, monto);
                             System.out.println(monedaConvertida);
@@ -86,7 +85,7 @@ public class Main {
                 }
 
             } catch (InputMismatchException e) {
-
+                System.out.println("Ingrese un número válido.\n");
                 sc.nextLine();
             } catch (Exception e) {
                 System.out.println("Algo salió mal, intente de nuevo.\n" + e.getMessage());
