@@ -1,6 +1,7 @@
-package com.project.conversormonedas.models;
+package com.project.conversormonedas.api;
 
 import com.google.gson.Gson;
+import com.project.conversormonedas.models.Moneda;
 
 import java.net.URI;
 import java.net.http.HttpClient;

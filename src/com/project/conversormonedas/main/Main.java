@@ -1,6 +1,6 @@
 package com.project.conversormonedas.main;
 
-import com.project.conversormonedas.models.ApiRequest;
+import com.project.conversormonedas.api.ApiRequest;
 import com.project.conversormonedas.models.ConversionModel;
 import com.project.conversormonedas.models.Moneda;
 
@@ -34,7 +34,7 @@ public class Main {
                     ===================================================
                     """);
             try {
-                System.out.print("Ingrese un valor: ");
+                System.out.print("Ingrese una opción del menú: ");
                 value_menu = sc.nextInt();
                 // limpiamos buffer del scanner
                 sc.nextLine();
